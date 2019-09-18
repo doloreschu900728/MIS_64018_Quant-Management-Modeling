@@ -19,7 +19,7 @@ add.constraint(lp_object, c(0, 0, 0, 0, 0, 0, 1, 1, 1), "<=", 750)
 
 #excess production percentage constraints
 add.constraint(lp_object, c(900, -750, 0, 900, -750, 0, 900, -750, 0), "=", 0)
-add.constraint(lp_object, c(0, 450, 900, 0, 450, 900, 0, 450, 900), "=", 0)
+add.constraint(lp_object, c(0, 450, -900, 0, 450, -900, 0, 450, -900), "=", 0)
 
 #save the model.
 write.lp(lp_object, filename = "Weigelt Production", type = "lp")
