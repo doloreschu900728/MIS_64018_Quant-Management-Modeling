@@ -61,6 +61,9 @@ add.constraint(lp_dual, c(1, 0, 0, 12, 0, 0, 0, 0, 1, 900, 0), ">=", 300)
 add.constraint(lp_dual, c(0, 1, 0, 0, 12, 0, 0, 0, 1, -700, 450), ">=", 300)
 add.constraint(lp_dual, c(0, 0, 1, 0, 0, 12, 0, 0, 1, 0, -900), ">=", 300)
 
+#how to set unrestrected variables? i.e. E1 and E2?
+set.bounds(lp_dual, lower = c(-Inf, -Inf), columns = 10:11)
+
 #save the model
 write.lp(lp_dual, filename = "Weigelt Production_Dual", type = "lp")
 
