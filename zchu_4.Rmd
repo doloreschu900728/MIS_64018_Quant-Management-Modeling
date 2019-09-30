@@ -1,0 +1,33 @@
+---
+title: "zchu_4"
+author: "Z Chu"
+date: "9/29/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Homework 4
+
+Question #1:
+
+```{r}
+library(lpSolveAPI)
+x<-read.lp("zchu_4.lp")
+x
+solve(x)
+get.objective(x)
+get.variables(x)
+```
+
+Question #2:
+```{r}
+y<-read.lp("zchu_4b.lp")
+y
+solve(y)
+get.objective(y)
+get.variables(y)
+```
+
