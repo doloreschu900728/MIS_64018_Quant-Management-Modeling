@@ -1,0 +1,61 @@
+---
+title: "zchu_6"
+author: "Dolores Chu"
+date: "11/2/2019"
+output: html_document
+---
+
+##### 1.	The Hope Valley Health Care Association owns and operates six nursing homes in adjoining states. An evaluation of their efficiency has been undertaken using two inputs and two outputs. The inputs are staffing labor (measured in average hours per day) and the cost of supplies (in thousands of dollars per day). The outputs are the number of patient-days reimbursed by third-party sources and the number of patient-days reimbursed privately. 
+1)	Formulate and perform DEA analysis under all DEA assumptions of FDH, CRS, VRS, IRS, DRS, and FRH.
+```{r}
+library(Benchmarking)
+x <- matrix(c(150, 400, 320, 520, 350, 320, 0.2, 0.7, 1.2, 2.0, 1.2, 0.7), ncol = 2)
+y <- matrix(c(14000, 14000, 42000, 28000, 19000, 14000, 3500, 21000, 10500, 42000, 25000, 15000), ncol = 2)
+colnames(x) <- c("Staff Hours per day", "Supplies per Day")
+colnames(y) <- c("Reimbursed Patient-Days", "Privately Paid Patient Days")
+FDH <- dea(x, y, RTS = "fdh")
+CRS <- dea(x, y, RTS = "crs")
+VRS <- dea(x, y, RTS = "vrs")
+IRS <- dea(x, y, RTS = "irs")
+DRS <- dea(x, y, RTS = "drs")
+#FRH <- dea(x, y, RTS = "frh")
+```
+
+2)	Determine the Peers and Lambdas under each of the above assumptions
+```{r}
+peers(FDH)
+lambda(FDH)
+peers(CRS)
+lambda(CRS)
+peers(VRS)
+lambda(VRS)
+peers(IRS)
+lambda(IRS)
+peers(DRS)
+lambda(DRS)
+#peers(FRH)
+#lambda(FRH)
+```
+
+3)	Summarize your results in a tabular format
+4)	Compare and contrast the above results
+
+##### 2.	The Research and Development Division of the Emax Corporation has developed three new products. A decision now needs to be made on which mix of these products should be produced. Management wants primary consideration given to three factors: total profit, stability in the workforce, and achieving an increase in the company’s earnings next year from the $75 million achieved this year. In particular, using the units given in the following table, they want to
+
+#####Maximize Z = P - 6C - 3D, where 
+
+#####P = total (discounted) profit over the life of the new products,
+#####C = change (in either direction) in the current level of employment,
+#####D = decrease (if any) in next year’s earnings from the current year’s level.
+3)	Formulate and solve the linear programming model. What are your findings?
+```{r}
+library(lpSolveAPI)
+HV <- read.lp("HopeValley.lp")
+HV
+solve(HV)
+get.objective(HV)
+get.variables(HV)
+```
+
+
+
