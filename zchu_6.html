@@ -386,7 +386,7 @@ CRS &lt;- dea(x, y, RTS = &quot;crs&quot;)
 VRS &lt;- dea(x, y, RTS = &quot;vrs&quot;)
 IRS &lt;- dea(x, y, RTS = &quot;irs&quot;)
 DRS &lt;- dea(x, y, RTS = &quot;drs&quot;)
-#FRH &lt;- dea(x, y, RTS = &quot;frh&quot;)</code></pre>
+FRH &lt;- dea(x, y, RTS = &quot;add&quot;)</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Determine the Peers and Lambdas under each of the above assumptions</li>
 </ol>
@@ -470,8 +470,22 @@ DRS &lt;- dea(x, y, RTS = &quot;drs&quot;)
 ## [4,] 0.0000000 0.00000000  0 1.0000000
 ## [5,] 0.2000000 0.08048142  0 0.5383307
 ## [6,] 0.3428571 0.39499264  0 0.1310751</code></pre>
-<pre class="r"><code>#peers(FRH)
-#lambda(FRH)</code></pre>
+<pre class="r"><code>peers(FRH)</code></pre>
+<pre><code>##      peer1
+## [1,]     1
+## [2,]     2
+## [3,]     3
+## [4,]     4
+## [5,]     5
+## [6,]     6</code></pre>
+<pre class="r"><code>lambda(FRH)</code></pre>
+<pre><code>##      L1 L2 L3 L4 L5 L6
+## [1,]  1  0  0  0  0  0
+## [2,]  0  1  0  0  0  0
+## [3,]  0  0  1  0  0  0
+## [4,]  0  0  0  1  0  0
+## [5,]  0  0  0  0  1  0
+## [6,]  0  0  0  0  0  1</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Summarize your results in a tabular format</li>
 <li>Compare and contrast the above results</li>
@@ -485,13 +499,13 @@ DRS &lt;- dea(x, y, RTS = &quot;drs&quot;)
 HV &lt;- read.lp(&quot;HopeValley.lp&quot;)
 HV</code></pre>
 <pre><code>## Model name: 
-##             x1    x2    x3   y1p   y1m   y2m   y2p        
-## Maximize    20    15    25    -6    -6    -3     0        
-## R1           6     4     5    -1     1     0     0   =  50
-## R2           8     7     5     0     0     1    -1  &gt;=  75
-## Kind       Std   Std   Std   Std   Std   Std   Std        
-## Type      Real  Real  Real  Real  Real  Real  Real        
-## Upper      Inf   Inf   Inf   Inf   Inf   Inf   Inf        
+##             x1    x2    x3   y1p   y1m   y2m   y2p       
+## Maximize    20    15    25    -6    -6    -3     0       
+## R1           6     4     5    -1     1     0     0  =  50
+## R2           8     7     5     0     0     1    -1  =  75
+## Kind       Std   Std   Std   Std   Std   Std   Std       
+## Type      Real  Real  Real  Real  Real  Real  Real       
+## Upper      Inf   Inf   Inf   Inf   Inf   Inf   Inf       
 ## Lower        0     0     0     0     0     0     0</code></pre>
 <pre class="r"><code>solve(HV)</code></pre>
 <pre><code>## [1] 0</code></pre>

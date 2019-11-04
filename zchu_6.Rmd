@@ -18,7 +18,7 @@ CRS <- dea(x, y, RTS = "crs")
 VRS <- dea(x, y, RTS = "vrs")
 IRS <- dea(x, y, RTS = "irs")
 DRS <- dea(x, y, RTS = "drs")
-#FRH <- dea(x, y, RTS = "frh")
+FRH <- dea(x, y, RTS = "add")
 ```
 
 2)	Determine the Peers and Lambdas under each of the above assumptions
@@ -33,8 +33,8 @@ peers(IRS)
 lambda(IRS)
 peers(DRS)
 lambda(DRS)
-#peers(FRH)
-#lambda(FRH)
+peers(FRH)
+lambda(FRH)
 ```
 
 3)	Summarize your results in a tabular format
