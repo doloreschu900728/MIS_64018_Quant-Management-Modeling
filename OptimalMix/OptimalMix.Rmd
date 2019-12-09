@@ -1,0 +1,31 @@
+---
+title: "zchu_Final_Project"
+author: "Dolores Chu"
+date: "11/30/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+##### Load lpSolveAPI library, then read in .lp file.
+```{r}
+library(lpSolveAPI)
+x <- read.lp("OptimalMix.lp")
+```
+
+##### Solve the LP problem.
+```{r}
+solve(x)
+get.objective(x)
+get.variables(x)
+```
+
+##### Get shadow prices
+```{r}
+get.sensitivity.rhs(x)
+```
+##### Get reduced cost
+```{r}
+get.sensitivity.obj(x)
+```
+
